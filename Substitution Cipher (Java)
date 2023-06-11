@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class substitution_cipher{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int opt = 0;
+        String inp = "abcdefghijklmnopqrstuvwxyz ";
+        String op = "zyxwvutsrqponmlkjihgfedcba ";
+        while(opt != 3){
+            System.out.println("Substitution Cryptographic Mechanism\nChoose\n1. To Encrypt\n2. To Decrypt\n3. Exit");
+            opt = sc.nextInt();
+            if(opt == 1){
+                System.out.print("Enter Message: ");
+                String mes = sc.next();
+                String enc = "";
+                int c = -1;
+                for(int i=0; i<mes.length(); i++){
+                    c = inp.indexOf(mes.charAt(i));
+                    enc += op.charAt(c);
+                }System.out.println("Encrypted Message: "+enc+"\n\n");
+            }else if(opt == 2){
+                System.out.print("Enter Message: ");
+                String mes = sc.next();
+                String enc = "";
+                int c = -1;
+                for(int i=0; i<mes.length(); i++){
+                    c = op.indexOf(mes.charAt(i));
+                    enc += inp.charAt(c);
+                }System.out.println("Decrypted Message: "+enc+"\n\n");
+            }else if(opt >3){
+                System.out.println("Invalid Selection\n Please try again!!\n\n");
+            }
+        }
+    }
+}
+    
