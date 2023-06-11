@@ -1,0 +1,21 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    char mes[50];
+    printf("Enter a message:");
+    gets(mes);
+    printf("\nXOR\n");
+    for(int i=0; i<strlen(mes); i++){
+        printf("%c",mes[i]^127);
+    }
+    printf("\nAND\n");
+    for(int i=0; i<strlen(mes); i++){
+        printf("%c",mes[i]&127);
+    }
+    printf("\nOR\n");
+    for(int i=0; i<strlen(mes); i++){
+        printf("%c",mes[i]|127);
+    }
+    return 0;
+}
