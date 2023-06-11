@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class ceaser_cipher{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int opt = 0;
+        while(opt != 3){
+            System.out.println("Ceaser Cryptographic Mechanism\nChoose\n1. To Encrypt\n2. To Decrypt\n3. Exit");
+            opt = sc.nextInt();
+            if(opt == 1){
+                encrypt();
+            }else if(opt == 2){
+                decrypt();
+            }else if(opt >3){
+                System.out.println("Invalid Selection\n Please try again!!\n\n");
+            }
+        }
+    }
+    
+    public static void encrypt(){
+        Scanner sc = new Scanner(System.in);
+        String enc = "";
+        System.out.print("Enter Message: ");
+        String mes = sc.next();
+        System.out.print("\nEnter Key: ");
+        int key = sc.nextInt();
+        for(int i=0; i<mes.length(); i++){
+            int c = (int)mes.charAt(i);
+            if(Character.isUpperCase(c)){
+                c = c+(key%26);
+                if(c>(int)'Z'){
+                    c = c-26;
+                }enc += (char)c;
+            }if(Character.isLowerCase(c)){
+                c = c+(key%26);
+                if(c>(int)'z'){
+                    c = c-26;
+                }enc += (char)c;
+            }
+        }System.out.println("Encrypted Message: "+enc+"\n\n");
+    }
+    
+    public static void decrypt(){
+        Scanner sc = new Scanner(System.in);
+        String enc = "";
+        System.out.print("Enter Message: ");
+        String mes = sc.next();
+        System.out.print("\nEnter Key: ");
+        int key = sc.nextInt();
+        for(int i=0; i<mes.length(); i++){
+            int c = (int)mes.charAt(i);
+            if(Character.isUpperCase(c)){
+                c = c-(key%26);
+                if(c<(int)'A'){
+                    c = c+26;
+                }enc += (char)c;
+            }if(Character.isLowerCase(c)){
+                c = c-(key%26);
+                if(c<(int)'a'){
+                    c = c+26;
+                }enc += (char)c;
+            }
+        }System.out.println("Decrypted Message: "+enc+"\n\n");
+    }
+}
